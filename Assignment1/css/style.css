@@ -19,11 +19,24 @@ html {
     animation: fade-in-elements 3s forwards;
     margin: auto auto;
     width: 100%;
-    height: 98vh;
     display: grid;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+}
+
+.wrapper img {
+
+    margin: auto auto;
+    padding-bottom: 1em;
+    transition: 1s;
+
+}
+
+.wrapper img:hover {
+
+    transform: rotate3d(1, 2, 3, 1810deg)
 
 }
 
