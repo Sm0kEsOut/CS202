@@ -1,6 +1,8 @@
 * {
 
     scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
 
 }
 
@@ -16,7 +18,7 @@
 
 .darkmode {
 
-    --base-color: #415a77;
+    --base-color: #31445a;
 	--base-variant: #778da9;
 	--text-color: #e0e1dd;
 	--secondary-color: #1b263b;
@@ -27,7 +29,8 @@
 body {
 
     background-color: var(--base-color);
-    transition: 1s;
+    transition: 8s;
+	overflow: hidden;
     
 }
 
@@ -38,7 +41,7 @@ body {
     color: var(--text-color);
     border-color: var(--base-variant);
     width: 100%;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     text-align: center;
 
@@ -95,4 +98,114 @@ body {
 
 	transform: translateY(0px)
 
+}
+
+.riseSet {
+
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	padding-top: 20vh;
+	overflow: hidden;
+
+}
+
+#sun {
+
+	height: 500px;
+	width: 500px;
+	border-radius: 50%;
+	background-color: rgb(247, 251, 18);
+	box-shadow: 0 0 60px 30px rgb(247, 251, 18);
+
+}
+
+#moon {
+
+	height: 500px;
+	width: 500px;
+	border-radius: 50%;
+	background-color: rgb(85, 85, 85);
+	box-shadow: 0 0 60px 30px rgb(43, 41, 41);
+
+}
+
+.sunUp {
+
+	animation: sunUp 4s ease-in-out 1 reverse;
+	opacity: 1;
+
+}
+
+.sunDown {
+
+	animation: sunDown 4s ease-in-out 1;
+	opacity: 0;
+
+}
+
+.moonUp {
+	
+	animation: moonUp 4s ease-in-out 1 reverse;
+	opacity: 1;
+
+}
+
+.moonDown {
+
+	animation: moonDown 4s ease-in-out 1;
+	opacity: 0;
+
+}
+
+@keyframes sunUp {
+	from {opacity: 1;}
+
+	to {
+
+		background-color: rgb(255, 0, 0);
+		transform: translateY(90vh);
+		box-shadow: 0 0 60px 30px rgb(255, 0, 0);
+		opacity: 0;
+
+	}
+}
+
+@keyframes sunDown {
+	from {opacity: 1;}
+
+	to {
+
+		background-color: rgb(255, 0, 0);
+		transform: translateY(90vh);
+		box-shadow: 0 0 60px 30px rgb(255, 0, 0);
+		opacity: 0;
+	}
+}
+
+@keyframes moonUp {
+	from {opacity: 1;}
+
+	to {
+
+		background-color: rgb(43, 41, 41);
+		transform: translateY(90vh);
+		box-shadow: 0 0 60px 30px rgb(43, 41, 41);
+		opacity: 0;
+
+	}
+}
+
+@keyframes moonDown {
+	from {opacity: 1;}
+
+	to {
+
+		background-color: rgb(43, 41, 41);
+		transform: translateY(90vh);
+		box-shadow: 0 0 60px 30px rgb(43, 41, 41);
+		opacity: 0;
+
+	}
 }
