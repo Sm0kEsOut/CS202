@@ -45,6 +45,7 @@ html {
     animation: fade-in-bg-image 2s forwards;
     margin: auto auto;
     width: 100%;
+    height: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -120,7 +121,7 @@ html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("./background2.jpeg");
+    background-image: url("./background3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
