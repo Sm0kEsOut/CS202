@@ -1,0 +1,98 @@
+* {
+
+    scroll-behavior: smooth;
+
+}
+
+:root {
+
+    --base-color: #7A93C2;
+	--base-variant: #9EB2CA;
+	--text-color: black;
+	--secondary-color: #C0CAD7;
+	--primary-color: #5F95CE;
+
+}
+
+.darkmode {
+
+    --base-color: #415a77;
+	--base-variant: #778da9;
+	--text-color: #e0e1dd;
+	--secondary-color: #1b263b;
+	--primary-color: #0d1b2a;
+
+}
+
+body {
+
+    background-color: var(--base-color);
+    transition: 1s;
+    
+}
+
+.wrapper {
+
+    display: grid;
+    margin: auto auto;
+    color: var(--text-color);
+    border-color: var(--base-variant);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.darkmode-menu {
+
+	margin: auto auto;
+	height: auto;
+	width: auto;
+
+}
+
+#theme-switch svg {
+
+	fill: var(--text-color);
+
+}
+
+#theme-switch {
+
+	height: 6.25rem;
+	width: 6.25rem;
+	border-radius: 50%;
+	background-color: var(--base-variant);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateY(2.5px);
+    box-shadow: 10px 10px 5px;
+	transition: 0.5s ease-in-out;
+
+}
+
+#theme-switch svg:last-child {
+
+	display: none;
+
+}
+
+.darkmode #theme-switch svg:first-child {
+
+	display: none;
+
+}
+
+.darkmode #theme-switch svg:last-child {
+
+	display: block;
+
+}
+
+#theme-switch:hover {
+
+	transform: translateY(0px)
+
+}
