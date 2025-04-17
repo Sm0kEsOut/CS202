@@ -27,5 +27,15 @@ $('document').ready(function () {
         darkmode !== "active" ? enableDarkmode() : disableDarkmode()
 
     })
+
+    window.addEventListener('keydown', function(event) {
+
+        if (event.code === 'Space') {
+            darkmode = localStorage.getItem('darkmode')
+            darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+        } else {
+            return event.code;
+        }
+    })
     
 })
