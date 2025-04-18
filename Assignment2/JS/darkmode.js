@@ -6,11 +6,6 @@ $('document').ready(function () {
     const themeSwitch = document.getElementById('theme-switch')
     const el1 = document.getElementById('sun')
     const el2 = document.getElementById('moon')
-    el1.addEventListener("animationstart", function() {}, false);
-    el1.addEventListener("animationend", function() {}, false);
-    el2.addEventListener("animationstart", function() {}, false);
-    el2.addEventListener("animationend", function() {}, false);
-
 
     const enableDarkmode = () => {
 
