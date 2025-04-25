@@ -1,75 +1,41 @@
+let triangles = [];
+let transitionSpeed = 0.01;
+
 function setup() {
-  createCanvas(500, 500, WEBGL);
+  createCanvas(500, 500);
 
-  strokeWeight(5);
-
-  camera(750, -1000, 1000);
-
-  perspective(1, 1.5);
+  triangles = [
+    { points: [500, 500, 500, 0, 150, 250], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [375, 90, 150, 0, 150, 250], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [500, 0, 150, 0, 375, 90], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [500, 500, 150, 500, 150, 250], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [150, 500, 0, 250, 0, 500], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [150, 0, 0, 0, 0, 250], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [150, 500, 150, 0, 0, 250], currentColor: randomColor(), targetColor: randomColor() },
+    { points: [150, 500, 75, 375, 0, 500], currentColor: randomColor(), targetColor: randomColor() }
+  ];
 }
 
 function draw() {
-
-  orbitControl();
-  
-  noStroke();
-
   background('#788585');
-  
-  let angle = frameCount * 0.01;
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
 
-  fill('#af280b');
-  triangle(500, 500, 500, 0, 150, 250);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
+  // Draw and animate each triangle
+  for (let t of triangles) {
+    // Interpolate current color toward target color
+    t.currentColor = lerpColor(t.currentColor, t.targetColor, transitionSpeed);
 
-  fill('#ece4d7');
-  triangle(375, 90, 150, 0, 150, 250);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
+    fill(t.currentColor);
+    triangle(...t.points);
+  }
 
-  fill('#7e7a79');
-  triangle(500, 0, 150, 0, 375, 90);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
+  // Occasionally pick new random target colors
+  if (frameCount % 120 === 0) {
+    for (let t of triangles) {
+      t.targetColor = randomColor();
+    }
+  }
+}
 
-  fill('#c6cad5');
-  triangle(500, 500, 150, 500, 150, 250);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
-
-  fill('#d7a601');
-  triangle(75, 375, 0, 250, 0, 500);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
-  
-  fill('#c6cad5');
-  triangle(150, 0, 0, 0, 0, 250);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
-  
-  fill('black');
-  triangle(150, 500, 150, 0, 0, 250);
-  
-  rotateZ(angle);
-  rotateY(angle);
-  rotateX(angle);
-  
-  fill('#ece4d7');
-  triangle(150, 500, 75, 375, 0, 500);
+function randomColor() {
+  return color(random(255), random(255), random(255));
 }

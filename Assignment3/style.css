@@ -71,6 +71,20 @@ canvas {
 
 }
 
+.navbar h1 {
+
+  color: var(--nav-text);
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.5s;
+
+}
+
+.navbar h1:hover {
+
+  color: var(--hover-color);
+  
+}
 
 .navbar a {
 
@@ -83,6 +97,49 @@ canvas {
 
 .navbar a:hover {
 
+  color: var(--hover-color);
+
+}
+
+.title {
+
+  display: flex;
+  justify-content: center;
+  cursor: default;
+
+}
+
+.title h1 {
+
+  color: var(--nav-text);
+  transition: 1s;
+
+}
+
+.title h1:hover {
+
+  color: var(--hover-color);
+
+}
+
+.credits {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.credits a {
+
+  color: var(--nav-text);
+  text-decoration: none;
+  transition: 0.5s;
+
+}
+
+.credits a:hover {
+
+  text-decoration: underline;
   color: var(--hover-color);
 
 }
