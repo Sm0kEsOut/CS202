@@ -1,24 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Montserrat&family=Sacramento&display=swap");
 
 :root {
+
   --nav-color: #CCDAD1;
   --nav-text: #fff;
   --primary-color: #9CAEA9;
   --secondary-color: #788585;
   --hover-color: #38302E;
+  
 }
 
 html, body {
+
   margin: 0;
   padding: 0;
   font-family: "Merriweather Sans", sans-serif;
   background-color: var(--primary-color);
+
 }
 
 canvas {
+
   display: block;
   margin: auto;
   padding-top: 5em;
+
 }
 
 .container {
