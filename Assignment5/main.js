@@ -5,18 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             data.FavoriteArtists.forEach(element => {
                 const div = document.createElement('div');
-                div.className = "g-col-6 g-col-md-4"
                 div.innerHTML = `
-        <div class="container-fluid card" style="width: 25rem; height: fit-content;">
-        <img src="..." class="card-img-top" alt="...">
+        <div class="container-fluid card" style="width: 40rem; height: fit-content;">
+        <img src="${element.Logo}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${element.Artist_Name}</h5>
             <p class="card-text">${element.Description}</p>
-            <span class="badge rounded-pill text-bg-secondary">${element.Monthly_Listeners} Monthly Listeners</span>
-            
+            <span class="badge text-bg-secondary">${element.Genres}</span><br>
+            <br>
+            <span class="badge rounded-pill text-bg-success">${element.Monthly_Listeners} Monthly Listeners</span><br>
+            <br>
             <a href="${element.Link}" class="btn btn-primary">Listen Now</a>
         </div>
-    </div>`
+    </div><br>`
+
                 document.querySelector('#cards').appendChild(div);
             });
 

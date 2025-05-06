@@ -6,15 +6,17 @@
             "Genres": "Progressive Metal, Alternative/Indie, Rock",
             "Albums": "Take Me Back To Eden, This Place Will Become Your Tomb, Sundowning",
             "Description": "Hiding their identities behind masks and black body paint whilst baring their pain for the world with their music, Sleep Token are among the most enigmatic outfits in metal. It should be no surprise, then, that the stories told within their songs are equally as mystical and open to interpretation. Only one thing is definitive: the UK band is fronted by Vessel, and they are ‘committed’ to worshipping the ancient deity known as Sleep. Each song is a Token (or an offering) in the name of Sleep.",
-            "Link": "https://open.spotify.com/artist/2n2RSaZqBuUUukhbLlpnE6"
+            "Link": "https://open.spotify.com/artist/2n2RSaZqBuUUukhbLlpnE6",
+            "Logo": "./images/ST.webp"
         },
         {
             "Artist_Name": "Enterprise Earth",
             "Monthly_Listeners": "80,001",
-            "Genres": "Deathcore, Death Metal, Netalcore, Djent, Metal",
-            "Albums": "Death: An Anthology, The Chosen, Luciferous, Embodiment, Patient 0, ",
+            "Genres": "Deathcore, Death Metal, Metalcore, Djent, Metal",
+            "Albums": "Death: An Anthology, The Chosen, Luciferous, Embodiment, Patient 0",
             "Description": "Enterprise Earth is an American deathcore band from Spokane, Washington. They blend old-school death metal with modern elements, creating a brooding, atmospheric, and groove-driven sound.",
-            "Link": "https://open.spotify.com/artist/1l3cAmALCtGbjWGVtRwhoh"
+            "Link": "https://open.spotify.com/artist/1l3cAmALCtGbjWGVtRwhoh",
+            "Logo": "./images/EE.png"
         },
         {
             "Artist_Name": "Hail The Sun",
@@ -22,7 +24,8 @@
             "Genres": "Post-Hardcore, Math Rock, Rock",
             "Albums": "Divine Inner Tension, New Age Filth, Mental Knife, Culture Scars, Wake, POW! Right in the Kisser!",
             "Description": "Hail The Sun is an American post-hardcore band known for their eclectic blend of genres, including progressive rock, math rock, and screamo influences. Formed in 2009, the band features Donovan Melero (vocals/drums), Shane Gann (guitar), Aric Garcia (guitar), John Stirrat (bass), and Allen Casillas (touring/studio drummer). They're known for their complex arrangements, high-energy live performances, and introspective lyrics.",
-            "Link": "https://open.spotify.com/artist/0XblvrTo6mnHOxWIP1t5T6"
+            "Link": "https://open.spotify.com/artist/0XblvrTo6mnHOxWIP1t5T6",
+            "Logo": "./images/HTS.png"
         },
         {
             "Artist_Name": "AngelMaker",
@@ -30,7 +33,8 @@
             "Genres": "Deathcore, Blackened Thrash, Melodic Death Metal",
             "Albums": "Sanctum, Angelmaker, Dissentient, Decay",
             "Description": "AngelMaker is a Canadian deathcore band formed in North Vancouver, British Columbia in 2011. The band's music blends deathcore with influences from death metal, black metal, hardcore, grindcore, power violence, and even rap. They are known for their aggressive and intense sound.",
-            "Link": "https://open.spotify.com/artist/1AdrYGYDz4oa9dvW2jfFrG"
+            "Link": "https://open.spotify.com/artist/1AdrYGYDz4oa9dvW2jfFrG",
+            "Logo": "./images/AM.png"
         },
         {
             "Artist_Name": "When Plagues Collide",
@@ -38,7 +42,8 @@
             "Genres": "Deathcore, Metal",
             "Albums": "An Unbiblical Paradigm, Tutor of the Dying",
             "Description": "When Plagues Collide is a symphonic deathcore band from Aarschot, Belgium. They formed in 2016 and are currently active, known for their blend of deathcore with orchestral and melodic death metal influences. The band's themes often revolve around social commentary and a critical view of modern society.",
-            "Link": "https://open.spotify.com/artist/04bY1Dfz2i4lQXmaEuPziP"
+            "Link": "https://open.spotify.com/artist/04bY1Dfz2i4lQXmaEuPziP",
+            "Logo": "./images/WPC.png"
         },
         {
             "Artist_Name": "Currents",
@@ -46,7 +51,8 @@
             "Genres": "Metalcore, Djent, Deathcore, Metal, Post-Hardcore",
             "Albums": "The Death We Seek, The Way It Ends, I Let the Devil In, The Place I Feel Safest, Life // Lost",
             "Description": "Currents is an American metalcore/progressive metalcore band formed in Newtown, Connecticut, in 2011. They are known for incorporating heavy riffs, breakdowns, djent guitars, and melodic rhythms, with the vocalist, Brian Wille, alternating between clean and screaming vocals.",
-            "Link": "https://open.spotify.com/artist/5pqvAI85RMxL9K0xHvSwGu"
+            "Link": "https://open.spotify.com/artist/5pqvAI85RMxL9K0xHvSwGu",
+            "Logo": "./images/currents.webp"
         },
         {
             "Artist_Name": "Kardashev",
@@ -54,7 +60,8 @@
             "Genres": "Djent, Deathcore, Synthwave, Progessive Metal, Metal, Deathgaze, Shoegaze",
             "Albums": "Alunea, Liminal Rite, The Baring of Shadows, The Almanac, Peripety",
             "Description": "Kardashev is a deathgaze band hailing from Tempe, Arizona, formed in 2012. They are known for their blend of death metal, shoegaze, and post-metal elements, creating a sound they call 'deathgaze'. The band's name is inspired by the Soviet astrophysicist Nikolai Kardashev",
-            "Link": "https://open.spotify.com/artist/5UYpPowESfmqU3fD6fJFox"
+            "Link": "https://open.spotify.com/artist/5UYpPowESfmqU3fD6fJFox",
+            "Logo": "./images/K.jpg"
         },
         {
             "Artist_Name": "Traitors",
@@ -62,7 +69,8 @@
             "Genres": "Deathcore, Metalcore, Death Metal, Metal",
             "Albums": "Phobias, Repent, Anger Issues, Mental State, The Hate Campaign",
             "Description": "Traitors is a South Florida-based deathcore band known for their signature blend of slow, sludgy, and downtempo riffs, a style that helped redefine the genre. They emerged as a pioneering force in 2013, with their debut single 'Arrogance' quickly gaining traction. Their music delves into the darker aspects of the human mind, exploring themes of mental anguish and internal struggles.",
-            "Link": "https://open.spotify.com/artist/1GkXxneFQE4d5YTsrbN6Ya"
+            "Link": "https://open.spotify.com/artist/1GkXxneFQE4d5YTsrbN6Ya",
+            "Logo": "./images/traitors.webp"
         },
         {
             "Artist_Name": "Kendrick Lamar",
@@ -70,7 +78,8 @@
             "Genres": "Hip/Hop, Rap",
             "Albums": "GNX, Mr. Morale & The Big Steppers, Black Panther The Album, DAMN., untitled unmastered., To Pimp A Butterfly, good kid m.A.A.d city, section.80, Overly Dedicated",
             "Description": "Kendrick Lamar Duckworth, known professionally as Kendrick Lamar, is a critically acclaimed American rapper, songwriter, and record producer. He's from Compton, California, and is widely regarded as one of the most influential and successful hip-hop artists of his generation. He's known for his lyrical complexity, innovative sound, and socially conscious and often introspective themes in his music.",
-            "Link": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg"
+            "Link": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",
+            "Logo": "./images/GNX.jpeg"
         },
         {
             "Artist_Name": "Distant",
@@ -78,7 +87,8 @@
             "Genres": "Deathcore, Brutal Death Metal, Slam",
             "Albums": "Tsukuyomi: The Origin, Heritage, Aeons of Oblivion, Tyrannotophia",
             "Description": "Distant is a downtempo deathcore band from Rotterdam, The Netherlands, and Bratislava, Slovakia. They are known for their crushing, hyper-dissonant sound, blending downtempo, slamming brutal death metal, and beatdown elements. The band formed in 2014 and has released multiple EPs and a full-length album, Tyrannotophia, on Unique Leader Records",
-            "Link": "https://open.spotify.com/artist/7dfpBi0QvO9FmlhBK6XHwJ"
+            "Link": "https://open.spotify.com/artist/7dfpBi0QvO9FmlhBK6XHwJ",
+            "Logo": "./images/DIS.png"
         },
         {
             "Artist_Name": "XXXTENTACION",
@@ -86,7 +96,8 @@
             "Genres": "Hip-Hop, Rap",
             "Albums": "LOOK AT ME: THE ALBUM, Bad Vibes Forever, ?, XXXTENTACION Presents: Members Only Vol. 4, SKINS, 17, XXXTENTACION Presents: Members Only Vol. 3",
             "Description": "XXXTentacion, whose real name was Jahseh Dwayne Ricardo Onfroy, was a controversial American rapper, singer, and songwriter known for his emo rap and SoundCloud rap styles. He gained a following with his depression-themed music, exploring genres like emo, trap, trap metal, and lo-fi. XXXTentacion's life was marked by legal troubles and violence, and he was murdered in 2018.",
-            "Link": "https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4"
+            "Link": "https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4",
+            "Logo": "./images/X.webp"
         },
         {
             "Artist_Name": "Immortal Disfigurement",
@@ -94,7 +105,8 @@
             "Genres": "Deathcore, Metal",
             "Albums": "KING",
             "Description": "Immortal Disfigurement is a symphonic deathcore band formed in 2021 by vocalist CJ McCreery. Based in Pittsburgh, Pennsylvania, the band released their debut album, 'King,' in June 2024. Their first single, 'Dragged Through the Inferno,' was released in 2022.",
-            "Link": "https://open.spotify.com/artist/7qkUuynmt0X6RkPgvF5ttK"
+            "Link": "https://open.spotify.com/artist/7qkUuynmt0X6RkPgvF5ttK",
+            "Logo": "./images/ID.webp"
         },
         {
             "Artist_Name": "Good Kid",
@@ -102,7 +114,8 @@
             "Genres": "Alternative/Indie, J-Rock, Indie-Rock, Pop-Punk",
             "Albums": "Good Kid 4, Good Kid 3, Good Kid 2, Good Kid",
             "Description": "Good Kid is a five-member indie rock band from Toronto, Canada, known for blending J-rock, indie-rock, and pop-punk influences. They're recognized for their high-energy riffs, catchy melodies, and clever lyricism. The band also has a strong online presence, with a passionate community of fans actively contributing to their universe through art, animation, and videos.",
-            "Link": "https://open.spotify.com/artist/38SKxCyfrmNWqWunb9wGHP"
+            "Link": "https://open.spotify.com/artist/38SKxCyfrmNWqWunb9wGHP",
+            "Logo": "./images/GK.png"
         },
         {
             "Artist_Name": "Shadow of Intent",
@@ -110,7 +123,8 @@
             "Genres": "Deathcore, Death Metal, Metal, Metalcore, Djent, Death Metal / Black Metal",
             "Albums": "Elegy, Melancholy, Reclaimer, Primordial",
             "Description": "Shadow of Intent is an American deathcore band from Connecticut, known for their symphonic and melodic deathcore style. Formed in 2013, they began as a Halo-themed project by Ben Duerr and Chris Wiseman. The band has released several independent albums and has gained recognition for their complex compositions and lyrical themes that often explore darkness, death, and war.",
-            "Link": "https://open.spotify.com/artist/76xrrejizyQpKukBIhnf3D"
+            "Link": "https://open.spotify.com/artist/76xrrejizyQpKukBIhnf3D",
+            "Logo": "./images/SOI.webp"
         },
         {
             "Artist_Name": "Crown Magnetar",
@@ -118,7 +132,8 @@
             "Genres": "Deathcore, Death Metal, Metal",
             "Albums": "Punishment, The Prophet of Disgust, Alone in Death, Everything Bleeds, The Codex of Flesh",
             "Description": "Crown Magnetar is a technical deathcore band from Colorado, known for their blend of technical shredding, intense tempos, and brutal vocals. They formed in 2017 and have released an EP, 'The Prophet of Disgust' (2018), and a full-length album, 'The Codex of Flesh' (2021).",
-            "Link": "https://open.spotify.com/artist/0DlST2L7efoM5Lb0uxG3Tx"
+            "Link": "https://open.spotify.com/artist/0DlST2L7efoM5Lb0uxG3Tx",
+            "Logo": "./images/CM.png"
         },
         {
             "Artist_Name": "Loathe",
@@ -126,7 +141,8 @@
             "Genres": "Progressive Metal, Alternative/Indie, Shoegaze, Blackgaze, Metalcore",
             "Albums": "The Things They Believe, I Let It in and It Took Everything, The Cold Sun, Prepare Consume Proceed",
             "Description": "Loathe is an English alternative metal band from Liverpool, formed in 2014. They are signed to SharpTone Records and have released two EPs and three studio albums. The band is known for their dark, conceptual, and atmospheric sound, blending elements of metalcore, shoegaze, and blackgaze.",
-            "Link": "https://open.spotify.com/artist/4G9wSdX0klmoHfjm9i6DLd"
+            "Link": "https://open.spotify.com/artist/4G9wSdX0klmoHfjm9i6DLd",
+            "Logo": "./images/L.webp"
         },
         {
             "Artist_Name": "Being As An Ocean",
@@ -134,7 +150,8 @@
             "Genres": "Post-Harcore, Melodic Hardcore, Post-Rock, Spoken Word",
             "Albums": "Death Can Wait, PROXY: An A.N.I.M.O. Story, Waiting for Morning to Come, Being as an Ocean, How We Both Wondrously Perish, Dear G-D..., ",
             "Description": "Being As an Ocean (BAAO) is a post-hardcore band from Alpine, California known for their melodic hardcore sound with spoken word elements, influenced by bands like La Dispute and MewithoutYou. They are described as a blend of post-hardcore, melodic hardcore, post-rock, and spoken word. Their music features intense emotional delivery, often described as a 'full experience for the head and the heart'.",
-            "Link": "https://open.spotify.com/artist/7ML9AQvVVE3c5m0sx1PlmP"
+            "Link": "https://open.spotify.com/artist/7ML9AQvVVE3c5m0sx1PlmP",
+            "Logo": "./images/BAAO.png"
         },
         {
             "Artist_Name": "Origami Angel",
@@ -142,7 +159,8 @@
             "Genres": "Alternative/Indie",
             "Albums": "Feeling Not Found, The Brightest Days, GAMI GANG, Somewhere City",
             "Description": "Origami Angel is a Washington D.C.-based two-piece band, Ryland Heagy (vocals, guitar) and Pat Doherty (drums), known for their blend of emo, pop-punk, and midwest emo styles, often with nods to video games and Pokémon. They are recognized for their unique sound that incorporates elements of math rock, easycore, and even bossa nova. Their music often explores themes of emotional and spiritual connection, and they are known for their intense and energetic live shows.",
-            "Link": "https://open.spotify.com/artist/0cmSXx965Hnm6fP42oW6vY"
+            "Link": "https://open.spotify.com/artist/0cmSXx965Hnm6fP42oW6vY",
+            "Logo": "./images/OA.png"
         },
         {
             "Artist_Name": "Xanthochroid",
@@ -150,15 +168,17 @@
             "Genres": "Epic Black Metal, Melodic Black Metal, Metal, Cinematic Black Metal, Acoustic Folk, Classical",
             "Albums": "Of Erthe and Axen: Act II, Of Erthe and Axen: Act I, Blessed He With Boils, Incultus",
             "Description": "Xanthochroid is a United States-based epic/melodic black metal band formed in 2005, based in Lake Forest, California. They describe their style as 'cinematic black metal' and are known for their self-created lore and fantasy themes. Their music features a blend of styles including acoustic folk, guttural black metal, classical music, and powermetal passages, often serving to enhance their narrative storytelling.",
-            "Link": "https://open.spotify.com/artist/3iDXQAdLOxBC7eBulyilpo"
+            "Link": "https://open.spotify.com/artist/3iDXQAdLOxBC7eBulyilpo",
+            "Logo": "./images/XAN.png"
         },
         {
             "Artist_Name": "Makari",
             "Monthly_Listeners": "138,158",
             "Genres": "Progressive Post-Hardcore, Swancore, Rock",
             "Albums": "Wave Machine, Hyperreal",
-            "Description": "Makari is an alternative rock/post-hardcore band from Orlando, Florida, formed in 2011. Their current lineup includes vocalist Andy Cizek, guitarists Matt Beljan and Eric Stewart, bassist John Tomasso, and drummer Kevin Beljan. They are known for their catchy post-hardcore sound and have released several EPs and a debut album, 'Hyperreal'.",
-            "Link": "https://open.spotify.com/artist/4YW1GDcW9hobRPMDi8v6XH"
+            "Description": "Makari is an alternative rock/post-hardcore band from Orlando, Florida, formed in 2011. Their current lineup includes vocalist Andy Cizek, guitarists Matt Beljan and Eric Stewart, bassist John Tomasso, and drummer Kevin Beljan. They are known for their catchy post-hardcore sound and have released several EPs and a debut album, <a href='https://open.spotify.com/album/7mNlkqcmP0Ws35MA5FZ1tt'>'Hyperreal'</a>.",
+            "Link": "https://open.spotify.com/artist/4YW1GDcW9hobRPMDi8v6XH",
+            "Logo": "./images/M.webp"
         }
     ]
 }
