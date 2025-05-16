@@ -10,16 +10,16 @@
     
     var eliza = new ElizaBot();
     var elizaLines = new Array();
-    
+
     var displayCols = 60;
     var displayRows = 20;
-    
+
     function elizaReset() {
       eliza.reset();
       elizaLines.length = 0;
       elizaStep();
     }
-    
+
     function elizaStep() {
       var f = document.forms.e_form;
       var userinput = f.e_input.value;
@@ -31,15 +31,15 @@
       }
       else if (userinput != '') {
         var usr = 'YOU:   ' + userinput;
-        var rpl ='Sindr: ' + eliza.transform(userinput);
+        var rpl = 'Sindr: ' + eliza.transform(userinput);
         elizaLines.push(usr);
         elizaLines.push(rpl);
         // display nicely
         // (fit to textarea with last line free - reserved for extra line caused by word wrap)
-        var temp  = new Array();
+        var temp = new Array();
         var l = 0;
-        for (var i=elizaLines.length-1; i>=0; i--) {
-          l += 1 + Math.floor(elizaLines[i].length/displayCols);
+        for (var i = elizaLines.length - 1; i >= 0; i--) {
+          l += 1 + Math.floor(elizaLines[i].length / displayCols);
           if (l >= displayRows) break
           else temp.push(elizaLines[i]);
         }
@@ -55,17 +55,23 @@
       f.e_input.value = '';
       f.e_input.focus();
     }
-    
+
     //-->
   </SCRIPT>
+
+  <link rel="stylesheet" href="style.css">
 </HEAD>
 
 <BODY TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0" BOTTOMMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" STYLE="border:0"
   onload="window.setTimeout('elizaReset()',100)"><A NAME="top"></A>
 
+  <div class="header">
+    <img src="./images/logotrans.png" alt="" width="50%" class="logo">
+    <a href="http://www.xanthofficial.com/lore.html">All responses inspired from the lore.</a>
+  </div>
+
   <CENTER>
     <P>&nbsp;</P>
-    <H3>Sindr</H3>
     <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
       <FORM NAME="e_form" onsubmit="elizaStep();return false">
         <TR>

@@ -1,0 +1,46 @@
+html {
+
+    background-color: #121212;
+    background-image: url(./images/1603325656.jpg);
+
+}
+
+textarea {
+
+    background-color: #121212;
+    color: white;
+
+}
+
+input {
+
+    background-color: #121212;
+    color: white;
+
+}
+
+.header {
+
+    background-color: #121212;
+    height: 7.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+a {
+
+    text-decoration: none;
+    color: white;
+    padding-top: 1em;
+    
+
+}
+
+a:hover {
+
+    text-decoration: underline;
+
+}
