@@ -1,12 +1,17 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { WebGLRenderer } from "three";
 import { gsap } from 'gsap';
-
 
 // Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new WebGLRenderer({
+    powerPreference: "high-performance",
+    antialias: true,
+    stencil: false,
+    depth: true
+});
 const textureLoader = new THREE.TextureLoader();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -196,10 +201,9 @@ window.addEventListener('mousemove', (event) => {
     const intersects = raycaster.intersectObjects(scene.children);
 
     if (intersects.length > 0 && intersects[0].object === earth) {
-        planetLabel.textContent = "Earth";
-        planetLabel.style.display = "block";
-        planetLabel.style.left = `${event.clientX}px`;
-        planetLabel.style.top = `${event.clientY}px`;
+        const d = new THREE.TextGeometry('Earth');
+        d.style.left = `${event.clientX}px`;
+        d.style.top = `${event.clientY}px`;
     } else if (intersects.length > 0 && intersects[0].object === mercury) {
         planetLabel.textContent = "Mercury";
         planetLabel.style.display = "block";
@@ -289,3 +293,4 @@ function animate() {
 }
 
 renderer.setAnimationLoop(animate);
+
