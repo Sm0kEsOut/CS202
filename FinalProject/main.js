@@ -1,7 +1,7 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { WebGLRenderer } from "three";
-import { gsap } from 'gsap';
+import * as THREE from './node_modules/three/build/three.module.js';
+import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
+import { WebGLRenderer } from "./node_modules/three/src/renderers/WebGLRenderer.js";
+import { gsap } from './node_modules/gsap/gsap-core.js';
 
 // Scene setup
 const scene = new THREE.Scene();
@@ -201,9 +201,10 @@ window.addEventListener('mousemove', (event) => {
     const intersects = raycaster.intersectObjects(scene.children);
 
     if (intersects.length > 0 && intersects[0].object === earth) {
-        const d = new THREE.TextGeometry('Earth');
-        d.style.left = `${event.clientX}px`;
-        d.style.top = `${event.clientY}px`;
+        planetLabel.textContent = "Earth";
+        planetLabel.style.display = "block";
+        planetLabel.style.left = `${event.clientX}px`;
+        planetLabel.style.top = `${event.clientY}px`;
     } else if (intersects.length > 0 && intersects[0].object === mercury) {
         planetLabel.textContent = "Mercury";
         planetLabel.style.display = "block";
@@ -293,4 +294,3 @@ function animate() {
 }
 
 renderer.setAnimationLoop(animate);
-
