@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "build": "^0.1.4",
     "gsap": "^3.13.0",
     "postprocessing": "^6.37.3",
     "three": "^0.176.0"
