@@ -262,12 +262,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (intersects.length > 0) {
             const planet = intersects[0].object;
+            console.log(intersects[0].object);
 
             // Stop any existing animations
             gsap.killTweensOf(camera.position);
             gsap.killTweensOf(controls.target);
-
-            originalCameraPos = { ...camera.position };
 
             // Calculate target position (5 units above planet)
             const targetPosition = {
@@ -350,17 +349,42 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(stars);
 
     function animate() {
-        requestAnimationFrame(animate);
+        const time = Date.now() * 0.0001;
 
-        // Rotate Earth around the Sun
-        earth.position.x = Math.cos(Date.now() * 0.0005) * 32;
-        earth.position.z = Math.sin(Date.now() * 0.0005) * 32;
+        // Rotate Planets around the Sun
+        mercury.position.x = Math.cos(time * 2) * 10;
+        mercury.position.z = Math.sin(time * 2) * 10;
+    
+        venus.position.x = Math.cos(time * 1.75) * 20;
+        venus.position.z = Math.sin(time * 1.75) * 20;
+
+        earth.position.x = Math.cos(time * 1.5) * 32;
+        earth.position.z = Math.sin(time * 1.5) * 32;
+
+        mars.position.x = Math.cos(time * 1.25) * 40;
+        mars.position.z = Math.sin(time * 1.25) * 40;
+
+        jupiter.position.x = Math.cos(time * 1) * 50;
+        jupiter.position.z = Math.sin(time * 1) * 50;
+
+        saturn.position.x = Math.cos(time * 0.75) * 60;
+        saturn.position.z = Math.sin(time * 0.75) * 60;
+
+        uranus.position.x = Math.cos(time * 0.5) * 70;
+        uranus.position.z = Math.sin(time * 0.5) * 70;
+
+        neptune.position.x = Math.cos(time * 0.25) * 80;
+        neptune.position.z = Math.sin(time * 0.25) * 80;
+
+
 
         // Rotate Earth on its axis
         earth.rotation.y += 0.0001;
 
         moon.position.x = earth.position.x + Math.cos(Date.now() * 0.005) * 3;
         moon.position.z = earth.position.z + Math.sin(Date.now() * 0.005) * 3;
+
+        requestAnimationFrame(animate);
 
         controls.update();
         renderer.render(scene, camera);
