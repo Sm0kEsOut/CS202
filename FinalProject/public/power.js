@@ -53,14 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const venusGeometry = new THREE.SphereGeometry(2, 32, 32);
     const venusTexture = textureLoader.load('./textures/8k_venus_surface.jpg');
-    const venusAtmosphere = textureLoader.load('./textures/4k_venus_atmosphere.jpg');
     const venusMaterial = new THREE.MeshBasicMaterial({
         map: venusTexture,
-        map: venusAtmosphere,
     });
     const venus = new THREE.Mesh(venusGeometry, venusMaterial);
     venus.position.set(20, 0, 0);
     scene.add(venus);
+
+    const venusCloudGeometry = new THREE.SphereGeometry(2.02, 32, 32);
+    const venusCloudMaterial = new THREE.MeshPhongMaterial({
+        map: new THREE.TextureLoader().load('textures/4k_venus_atmosphere.jpg'),
+        transparent: true,
+        opacity: 0.3
+    });
+    const venusClouds = new THREE.Mesh(venusCloudGeometry, venusCloudMaterial);
+    venus.add(venusClouds);
 
     const earthGeometry = new THREE.SphereGeometry(2, 32, 32);
     const earthTexture = textureLoader.load('./textures/8k_earth_daymap.jpg');
@@ -70,6 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const earth = new THREE.Mesh(earthGeometry, earthMaterial);
     earth.position.set(30, 0, 0);
     scene.add(earth);
+
+    const earthCloudGeometry = new THREE.SphereGeometry(2.02, 32, 32);
+    const earthCloudMaterial = new THREE.MeshPhongMaterial({
+        map: new THREE.TextureLoader().load('./textures/8k_earth_clouds.jpg'),
+        transparent: true,
+        opacity: 0.3
+    });
+    const earthClouds = new THREE.Mesh(earthCloudGeometry, earthCloudMaterial);
+    earth.add(earthClouds);
 
     const marsGeometry = new THREE.SphereGeometry(1.7, 32, 32);
     const marsTexture = textureLoader.load('./textures/8k_mars.jpg');
@@ -97,6 +113,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
     saturn.position.set(60, 0, 0);
     scene.add(saturn);
+
+    // Add particle ring (optional)
+    const ringParticles = new THREE.BufferGeometry();
+    const particleCount = 5000;
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 4.5 + Math.random() * 1.5;
+        positions[i * 3] = Math.cos(angle) * radius;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 0.1;
+        positions[i * 3 + 2] = Math.sin(angle) * radius;
+    }
+
+    ringParticles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleSystem = new THREE.Points(
+        ringParticles,
+        new THREE.PointsMaterial({
+            color: 0xaaaaaa,
+            size: 0.02,
+            transparent: true
+        })
+    );
+    saturn.add(particleSystem);
 
     const uranusGeometry = new THREE.SphereGeometry(2, 32, 32);
     const uranusTexture = textureLoader.load('./textures/2k_uranus.jpg');
@@ -348,13 +388,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const stars = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(stars);
 
+    renderer.shadowMap.enabled = true;
+    saturn.castShadow = true;
+
     function animate() {
         const time = Date.now() * 0.0001;
 
         // Rotate Planets around the Sun
         mercury.position.x = Math.cos(time * 2) * 10;
         mercury.position.z = Math.sin(time * 2) * 10;
-    
+
         venus.position.x = Math.cos(time * 1.75) * 20;
         venus.position.z = Math.sin(time * 1.75) * 20;
 
@@ -376,13 +419,20 @@ document.addEventListener('DOMContentLoaded', () => {
         neptune.position.x = Math.cos(time * 0.25) * 80;
         neptune.position.z = Math.sin(time * 0.25) * 80;
 
-
-
         // Rotate Earth on its axis
+        mercury.rotation.y += 0.0001;
+        venus.rotation.y += 0.0001;
         earth.rotation.y += 0.0001;
+        mars.rotation.y += 0.00001;
+        jupiter.rotation.y += 0.00005;
+        saturn.rotation.y += 0.00005;
+        uranus.rotation.y += 0.00005;
+        neptune.rotation.y += 0.00005;
 
         moon.position.x = earth.position.x + Math.cos(Date.now() * 0.005) * 3;
         moon.position.z = earth.position.z + Math.sin(Date.now() * 0.005) * 3;
+
+        earthClouds.rotation.y += 0.00005;
 
         requestAnimationFrame(animate);
 
