@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const earthOrbit = new THREE.Line(
         new THREE.BufferGeometry().setFromPoints(
-            new THREE.EllipseCurve(0, 0, 30, 30, 0, Math.PI * 2, false).getPoints(100)
+            new THREE.EllipseCurve(0, 0, 32, 32, 0, Math.PI * 2, false).getPoints(100)
         ),
         new THREE.LineBasicMaterial({ color: 0x555555 })
     );
@@ -252,48 +252,120 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    window.addEventListener('click', () => {
+    window.addEventListener('click', (event) => {
 
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(scene.children);
-        if (intersects.length > 0 && intersects[0].object === earth) {
 
-            gsap.to(camera.position, { x: earth.position.x, y: earth.position.y + 5, z: earth.position.z + 10, duration: 1, ease: "power2.inOut" });
+        if (intersects.length > 0) {
+            const planet = intersects[0].object;
 
-        } else if (intersects.length > 0 && intersects[0].object === mercury) {
+            // Stop any existing animations
+            gsap.killTweensOf(camera.position);
+            gsap.killTweensOf(controls.target);
 
-            gsap.to(camera.position, { x: mercury.position.x, y: mercury.position.y + 5, z: mercury.position.z + 10, duration: 1, ease: "power2.inOut" });
+            originalCameraPos = { ...camera.position };
 
-        } else if (intersects.length > 0 && intersects[0].object === venus) {
+            // Calculate target position (5 units above planet)
+            const targetPosition = {
+                x: planet.position.x,
+                y: planet.position.y + 5,
+                z: planet.position.z + 10
+            };
 
-            gsap.to(camera.position, { x: venus.position.x, y: venus.position.y + 5, z: venus.position.z + 10, duration: 1, ease: "power2.inOut" });
-
-        } else if (intersects.length > 0 && intersects[0].object === mars) {
-
-            gsap.to(camera.position, { x: mars.position.x, y: mars.position.y + 5, z: mars.position.z + 10, duration: 1, ease: "power2.inOut" });
-
-        } else if (intersects.length > 0 && intersects[0].object === jupiter) {
-
-            gsap.to(camera.position, { x: jupiter.position.x, y: jupiter.position.y + 5, z: jupiter.position.z + 10, duration: 1, ease: "power2.inOut" });
-
-        } else if (intersects.length > 0 && intersects[0].object === saturn) {
-
-            gsap.to(camera.position, { x: saturn.position.x, y: saturn.position.y + 5, z: saturn.position.z + 10, duration: 1, ease: "power2.inOut" });
-
-        } else if (intersects.length > 0 && intersects[0].object === uranus) {
-
-            gsap.to(camera.position, { x: uranus.position.x, y: uranus.position.y + 5, z: uranus.position.z + 10, duration: 1, ease: "power2.inOut" });
-
-        } else if (intersects.length > 0 && intersects[0].object === neptune) {
-
-            gsap.to(camera.position, { x: neptune.position.x, y: neptune.position.y + 5, z: neptune.position.z + 10, duration: 1, ease: "power2.inOut" });
-
+            // Move camera to planet
+            gsap.to(camera.position, {
+                x: targetPosition.x,
+                y: targetPosition.y,
+                z: targetPosition.z,
+                duration: 1.5,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    // Make camera look at planet during movement
+                    controls.target.copy(planet.position);
+                    controls.update();
+                },
+                onComplete: () => {
+                    // Start auto-follow
+                    startPlanetFollow(planet);
+                }
+            });
+        } else {
+            // Reset view if clicking empty space
+            resetCameraView();
         }
 
-    })
+    });
+
+    let followInterval;
+    function startPlanetFollow(planet) {
+        // Clear any existing follow
+        if (followInterval) clearInterval(followInterval);
+
+        // Update camera target every frame
+        followInterval = setInterval(() => {
+            controls.target.copy(planet.position);
+            controls.update();
+        }, 16); // ~60fps
+    }
+
+    function resetCameraView() {
+        gsap.killTweensOf(camera.position);
+        gsap.killTweensOf(controls.target);
+        if (followInterval) clearInterval(followInterval);
+
+        gsap.to(camera.position, {
+            x: 0,
+            y: 20,
+            z: 50,
+            duration: 1.5,
+            onUpdate: () => {
+                controls.target.set(0, 0, 0);
+                controls.update();
+            }
+        });
+    }
+
+    const moonGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const moonMaterial = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
+    const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+    moon.position.set(29, 0, 0);
+    scene.add(moon);
+
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+    const starsVertices = [];
+    for (let i = 0; i < 1000; i++) {
+        starsVertices.push(
+            THREE.MathUtils.randFloatSpread(1000),
+            THREE.MathUtils.randFloatSpread(1000),
+            THREE.MathUtils.randFloatSpread(1000)
+        );
+    }
+    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
 
     function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotate Earth around the Sun
+        earth.position.x = Math.cos(Date.now() * 0.0005) * 32;
+        earth.position.z = Math.sin(Date.now() * 0.0005) * 32;
+
+        // Rotate Earth on its axis
+        earth.rotation.y += 0.0001;
+
+        moon.position.x = earth.position.x + Math.cos(Date.now() * 0.005) * 3;
+        moon.position.z = earth.position.z + Math.sin(Date.now() * 0.005) * 3;
+
+        controls.update();
         renderer.render(scene, camera);
     }
+    animate();
 
     renderer.setAnimationLoop(animate);
 });
