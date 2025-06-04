@@ -456,11 +456,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let followInterval;
     function startPlanetFollow(planet) {
-        // Clear any existing follow
         if (followInterval) clearInterval(followInterval);
 
-        // Update camera target every frame
         followInterval = setInterval(() => {
+            const offset = new THREE.Vector3(10, 5, 10);
+
+            const newCameraPos = planet.position.clone().add(offset);
+            gsap.to(camera.position, {
+                x: newCameraPos.x,
+                y: newCameraPos.y,
+                z: newCameraPos.z,
+                duration: 0.2,
+                ease: "power1.out"
+            });
+
+            // Make camera look at the planet
             controls.target.copy(planet.position);
             controls.update();
         }, 16); // ~60fps
@@ -492,11 +502,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const starsGeometry = new THREE.BufferGeometry();
     const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff });
     const starsVertices = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 500; i < 2000; i++) {
         starsVertices.push(
-            THREE.MathUtils.randFloatSpread(1000),
-            THREE.MathUtils.randFloatSpread(1000),
-            THREE.MathUtils.randFloatSpread(1000)
+            THREE.MathUtils.randFloatSpread(2000),
+            THREE.MathUtils.randFloatSpread(2000),
+            THREE.MathUtils.randFloatSpread(2000)
         );
     }
     starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
@@ -536,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update button text
         toggleOrbitsBtn.textContent = orbitsVisible ?
-            'Hide Orbits' : 'Show Orbits';
+            'Hide Orbits (O)' : 'Show Orbits (O)';
     });
 
     document.addEventListener('keydown', (e) => {
@@ -574,6 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
         neptune.position.z = Math.sin(time * 0.25) * 80;
 
         // Rotate Earth on its axis
+        sun.rotation.y += 0.00001;
         mercury.rotation.y += 0.0001;
         venus.rotation.y += 0.0001;
         earth.rotation.y += 0.0001;
@@ -585,8 +596,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         moon.position.x = earth.position.x + Math.cos(Date.now() * 0.005) * 3;
         moon.position.z = earth.position.z + Math.sin(Date.now() * 0.005) * 3;
-
-        earthClouds.rotation.y += 0.00005;
 
         requestAnimationFrame(animate);
 
