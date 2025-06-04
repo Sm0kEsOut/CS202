@@ -9,6 +9,87 @@
     body {
       margin: 0;
     }
+
+    #planet-panel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      width: 300px;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    #planet-panel.hidden {
+      display: none;
+    }
+
+    #close-panel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .panel-content img {
+      width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    #planet-label {
+
+      position: fixed;
+      top: 20px;
+      
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: 1px solid #444;
+      border-radius: 5px;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+
+    }
+
+    #planet-label:hover {
+      cursor: default;
+    }
+
+    #toggle-orbits {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: 1px solid #444;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+    }
+
+    #toggle-orbits:hover {
+      background: rgba(30, 30, 30, 0.9);
+    }
+
+    @media (max-width: 600px) {
+      #planet-panel {
+        width: 80%;
+        top: 20px;
+        transform: translateX(-50%);
+      }
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.min.js"></script>
@@ -17,6 +98,22 @@
 
 <body>
   <div id="planet-label"></div>
+
+  <button id="toggle-orbits">Toggle Orbits (O)</button>
+
+  <div id="planet-panel" class="hidden">
+    <div class="panel-content">
+      <button id="close-panel">×</button>
+      <h2 id="planet-name">Planet Name</h2>
+      <img id="planet-icon" src="" alt="Planet">
+      <div id="planet-facts">
+        <p><strong>Diameter:</strong> <span id="diameter">-</span></p>
+        <p><strong>Distance from Sun:</strong> <span id="distance">-</span></p>
+        <p><strong>Orbital Period:</strong> <span id="orbit">-</span></p>
+        <p><strong>Fun Fact:</strong> <span id="fact">-</span></p>
+      </div>
+    </div>
+  </div>
 
   <script src="./power.js" defer></script>
 

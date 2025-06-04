@@ -18,6 +18,85 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
+    // Planet data storage
+    const planetData = {
+
+        mercury: {
+            name: "Mercury",
+            diameter: "4,879.4 km",
+            distance: "46 million km",
+            orbit: "88 Earth days",
+            fact: "Smallest planet in our solar system",
+            icon: "./textures/mercury_icon.jpg"
+        },
+        venus: {
+            name: "Venus",
+            diameter: "12,104 km",
+            distance: "108.92 million km",
+            orbit: "225 Earth days",
+            fact: "A day on Venus is longer than a year",
+            icon: "./textures/venus_icon.jpg"
+        },
+        earth: {
+            name: "Earth",
+            diameter: "12,756 km",
+            distance: "149.6 million kilometers",
+            orbit: "365 Earth days",
+            fact: "the Earth is tilted 23.4 degrees on its axis",
+            icon: "./textures/earth_icon.jpg"
+        },
+        mars: {
+            name: "Mars",
+            diameter: "6,779 km",
+            distance: "228 million kilometers",
+            orbit: "687 Earth days",
+            fact: "Mars is called the Red Planet because of all the iron in the soil",
+            icon: "./textures/mars_icon.jpg"
+        },
+        jupiter: {
+            name: "Jupiter",
+            diameter: "139,820 km",
+            distance: "767.84 million kilometers",
+            orbit: "4,333 Earth days",
+            fact: "Jupiter is the biggest planet in our solar system",
+            icon: "./textures/jupiter_icon.png"
+        },
+        saturn: {
+            name: "Saturn",
+            diameter: "120,500 km",
+            distance: "1.4 billion km",
+            orbit: "10,759 Earth days",
+            fact: "Has the most extensive ring system",
+            icon: "./textures/saturn_icon.jpg"
+        },
+        uranus: {
+            name: "Uranus",
+            diameter: "50,724 km",
+            distance: "2.9201 billion km",
+            orbit: "30,687 Earth days",
+            fact: "Uranus is surrounded by a set of 13 rings",
+            icon: "./textures/uranus_icon.jpg"
+        },
+        neptune: {
+            name: "Neptune",
+            diameter: "49,244 km",
+            distance: "4.471 billion km",
+            orbit: "60,190 Earth days",
+            fact: "Neptune has a thick, windy atmosphere",
+            icon: "./textures/neptune_icon.web"
+        }
+
+    };
+
+    const planetPanel = document.getElementById('planet-panel');
+    const planetName = document.getElementById('planet-name');
+    const planetIcon = document.getElementById('planet-icon');
+    const diameter = document.getElementById('diameter');
+    const distance = document.getElementById('distance');
+    const orbit = document.getElementById('orbit');
+    const fact = document.getElementById('fact');
+    const closeBtn = document.getElementById('close-panel');
+
     // Add orbit contorls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true; // Smooth camera movement
@@ -37,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sunTexture = textureLoader.load('./textures/8k_sun.jpg');
     const sunMaterial = new THREE.MeshBasicMaterial({
         map: sunTexture,
-        // Add glow effect later
     });
     const sun = new THREE.Mesh(sunGeometry, sunMaterial);
     scene.add(sun);
@@ -302,42 +380,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (intersects.length > 0) {
             const planet = intersects[0].object;
-            console.log(intersects[0].object);
+            const planetKey = getPlanetKey(planet);
 
-            // Stop any existing animations
-            gsap.killTweensOf(camera.position);
-            gsap.killTweensOf(controls.target);
+            if (planetKey && planetData[planetKey]) {
+                // Show planet data
+                showPlanetData(planetKey);
 
-            // Calculate target position (5 units above planet)
-            const targetPosition = {
-                x: planet.position.x,
-                y: planet.position.y + 5,
-                z: planet.position.z + 10
-            };
+                // Stop any existing animations
+                gsap.killTweensOf(camera.position);
+                gsap.killTweensOf(controls.target);
 
-            // Move camera to planet
-            gsap.to(camera.position, {
-                x: targetPosition.x,
-                y: targetPosition.y,
-                z: targetPosition.z,
-                duration: 1.5,
-                ease: "power2.inOut",
-                onUpdate: () => {
-                    // Make camera look at planet during movement
-                    controls.target.copy(planet.position);
-                    controls.update();
-                },
-                onComplete: () => {
-                    // Start auto-follow
-                    startPlanetFollow(planet);
-                }
-            });
-        } else {
-            // Reset view if clicking empty space
-            resetCameraView();
+                // Calculate target position (5 units above planet)
+                const targetPosition = {
+                    x: planet.position.x,
+                    y: planet.position.y + 5,
+                    z: planet.position.z + 10
+                };
+
+                // Move camera to planet
+                gsap.to(camera.position, {
+                    x: targetPosition.x,
+                    y: targetPosition.y,
+                    z: targetPosition.z,
+                    duration: 1.5,
+                    ease: "power2.inOut",
+                    onUpdate: () => {
+                        // Make camera look at planet during movement
+                        controls.target.copy(planet.position);
+                        controls.update();
+                    },
+                    onComplete: () => {
+                        // Start auto-follow
+                        startPlanetFollow(planet);
+                    }
+                })
+            } else {
+                // Reset view if clicking empty space
+                planetPanel.classList.add('hidden');
+                resetCameraView();
+            }
         }
-
     });
+
+    function getPlanetKey(planet) {
+        if (planet === sun) return 'sun';
+        if (planet === mercury) return 'mercury';
+        if (planet === venus) return 'venus';
+        if (planet === earth) return 'earth';
+        if (planet === mars) return 'mars';
+        if (planet === jupiter) return 'jupiter';
+        if (planet === saturn) return 'saturn';
+        if (planet === uranus) return 'uranus';
+        if (planet === neptune) return 'neptune';
+        return null;
+    }
+
+    function showPlanetData(planetKey) {
+        const data = planetData[planetKey];
+        planetName.textContent = data.name;
+        planetIcon.src = data.icon;
+        diameter.textContent = data.diameter;
+        distance.textContent = data.distance;
+        orbit.textContent = data.orbit;
+        fact.textContent = data.fact;
+        planetPanel.classList.remove('hidden');
+
+        // Animation
+        gsap.from(planetPanel, {
+            duration: 0.5,
+            opacity: 0,
+            y: 50,
+            ease: "back.out"
+        });
+    }
 
     let followInterval;
     function startPlanetFollow(planet) {
@@ -390,6 +505,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderer.shadowMap.enabled = true;
     saturn.castShadow = true;
+
+    closeBtn.addEventListener('click', (event) => {
+        planetPanel.classList.add('hidden');
+    });
+
+    const orbitLines = [
+        mercuryOrbit, venusOrbit, earthOrbit,
+        marsOrbit, jupiterOrbit, saturnOrbit,
+        uranusOrbit, neptuneOrbit
+    ];
+
+    let orbitsVisible = true;
+
+    const toggleOrbitsBtn = document.getElementById('toggle-orbits');
+
+    toggleOrbitsBtn.addEventListener('click', () => {
+        orbitsVisible = !orbitsVisible;
+
+        orbitLines.forEach(orbit => {
+            gsap.to(orbit.material, {
+                opacity: orbitsVisible ? 1 : 0,
+                duration: 0.5,
+                onComplete: () => {
+                    orbit.visible = orbitsVisible;
+                }
+            });
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'o') {
+            toggleOrbitsBtn.click();
+        }
+    });
 
     function animate() {
         const time = Date.now() * 0.0001;
