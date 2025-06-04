@@ -508,6 +508,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', (event) => {
         planetPanel.classList.add('hidden');
+        resetCameraView();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'escape') {
+            closeBtn.click();
+        }
     });
 
     const orbitLines = [
@@ -524,14 +531,12 @@ document.addEventListener('DOMContentLoaded', () => {
         orbitsVisible = !orbitsVisible;
 
         orbitLines.forEach(orbit => {
-            gsap.to(orbit.material, {
-                opacity: orbitsVisible ? 1 : 0,
-                duration: 0.5,
-                onComplete: () => {
-                    orbit.visible = orbitsVisible;
-                }
-            });
+            orbit.visible = orbitsVisible;
         });
+
+        // Update button text
+        toggleOrbitsBtn.textContent = orbitsVisible ?
+            'Hide Orbits' : 'Show Orbits';
     });
 
     document.addEventListener('keydown', (e) => {
