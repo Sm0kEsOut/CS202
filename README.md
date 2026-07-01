@@ -15,6 +15,6 @@ https://chat.deepseek.com/a/chat/s/a5909933-b3f1-436e-b4a6-1e1fd32de49c
 
 Final Project Presentation: https://sm0kesout.github.io/CS202/FinalProjectPresentation/index.html
 
-Final Project: [https://interactive-3d-solar-system-model.org](https://sm0kesout.github.io/CS202/FinalProject/public/index.html)
+Final Project: https://sm0kesout.github.io/CS202/FinalProject/public/index.html
 
 Resume: https://sm0kesout.github.io/CS202/Resume/index.html
